@@ -22,12 +22,16 @@ header("location:index.php?page=home");
 	body{
 		width: 100%;
 	    height: calc(100%);
-	    /*background: #007bff;*/
+	    background: #e0e0e0;
 	}
 	main#main{
+	
 		width:100%;
 		height: calc(100%);
-		background:white;
+		background:#e0e0e0;
+	}
+	.card {
+		border-radius: 10px;
 	}
 	#login-right{
 		position: absolute;
@@ -38,7 +42,7 @@ header("location:index.php?page=home");
 		display: flex;
 		align-items: center;
 	}
-	#login-left{
+	/* #login-left{
 		position: absolute;
 		left:0;
 		width:60%;
@@ -51,7 +55,7 @@ header("location:index.php?page=home");
 	#login-right .card{
 		margin: auto;
 		z-index: 1
-	}
+	} */
 	.logo {
     margin: auto;
     font-size: 8rem;
@@ -71,20 +75,20 @@ div#login-right::before {
     background: #000000e0;
 }
 
+.margintop{
+	margin-top:150px
+}
+
 </style>
 
 <body>
 
 
-  <main id="main" class=" bg-dark">
-  		<div id="login-left">
-  			<div class="logo"><span class="fa fa-search"></span></div>
-  		</div>
-
-  		<div id="login-right">
-  			<div class="card col-md-8">
+  <main id="main" class="margintop container" style="width:400px">
+  		<div id="">
+  			<div class="card ">
   				<div class="card-body">
-  						
+  						<h5 class="text-center mb-5 mt-2">Relief Tracker</h5>
   					<form id="login-form" >
   						<div class="form-group">
   							<label for="username" class="control-label">Username</label>
@@ -94,7 +98,7 @@ div#login-right::before {
   							<label for="password" class="control-label">Password</label>
   							<input type="password" id="password" name="password" class="form-control">
   						</div>
-  						<center><button class="btn-sm btn-block btn-wave col-md-4 btn-primary">Login</button></center>
+  						<center><button class="btn-sm btn-block btn-wave col-md-4 mt-4 btn-primary">Login</button></center>
   					</form>
   				</div>
   			</div>
