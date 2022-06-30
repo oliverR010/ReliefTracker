@@ -4,6 +4,7 @@ require 'assets/barcode/vendor/autoload.php';
 extract($_POST);
 
 $generator = new Picqer\Barcode\BarcodeGeneratorPNG();
+
 $qry = $conn->query("SELECT *,concat(lastname,', ',firstname,' ',middlename) as name, concat(address,', ',street,', ',baranggay,', ',city,', ',state,', ',zip_code) as caddress FROM persons where id= ".$_GET['id']);
 foreach($qry->fetch_array() as $k => $val){
 	$$k=$val;

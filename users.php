@@ -57,9 +57,9 @@
 								    <span class="sr-only">Toggle Dropdown</span>
 								  </button>
 								  <div class="dropdown-menu"> -->
-								    <a class="btn btn-success edit_user" style="width: 90px;" href="javascript:void(0)" data-id = '<?php echo $row['id'] ?>'>Edit</a>
+								    <a class="btn btn-sm btn-success edit_user" style="width: 80px;" href="javascript:void(0)" data-id = '<?php echo $row['id'] ?>'>Edit</a>
 								    <!-- <div class="dropdown-divider"></div> -->
-								    <a class="btn btn-danger delete_user" style="width: 90px;" href="javascript:void(0)" data-id = '<?php echo $row['id'] ?>'>Delete</a>
+								    <a class="btn btn-sm btn-danger delete_user" style="width: 80px;" href="javascript:void(0)" data-id = '<?php echo $row['id'] ?>'>Delete</a>
 								  <!-- </div>
 								</div> -->
 								</center>
@@ -81,9 +81,11 @@ $('#new_user').click(function(){
 $('.edit_user').click(function(){
 	uni_modal('Edit User','manage_user.php?id='+$(this).attr('data-id'))
 })
+
 $('.delete_user').click(function(){
 		_conf("Are you sure to delete this user?","delete_user",[$(this).attr('data-id')])
 	})
+	
 	function delete_user($id){
 		start_load()
 		$.ajax({
