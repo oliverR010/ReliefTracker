@@ -142,6 +142,12 @@ Class Action {
 		if($delete)
 			return 1;
 	}
+	function delete_records(){
+		extract($_POST);
+		$delete = $this->db->query("DELETE FROM person_tracks where id = ".$id);
+		if($delete)
+			return 1;
+	}
 	
 	function save_person(){
 		extract($_POST);
@@ -201,6 +207,7 @@ Class Action {
 			return json_encode(array("status"=>1,"id"=>$id));
 		}
 	}
+	
 	function delete_track(){
 		extract($_POST);
 		$delete = $this->db->query("DELETE FROM person_tracks where id = ".$id);

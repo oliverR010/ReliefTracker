@@ -135,6 +135,7 @@
 		max-height: :150px;
 	}
 </style>
+
 <script>
 	$(document).ready(function(){
 		$('table').dataTable()
@@ -147,15 +148,18 @@
 		uni_modal("Edit Record","manage_records.php?id="+$(this).attr('data-id'),"mid-large")
 		
 	})
+
 	$('.delete_records').click(function(){
 		_conf("Are you sure to delete this Person?","delete_records",[$(this).attr('data-id')])
 	})
+
 	$('#check_all').click(function(){
 		if($(this).prop('checked') == true)
 			$('[name="checked[]"]').prop('checked',true)
 		else
 			$('[name="checked[]"]').prop('checked',false)
 	})
+
 	$('[name="checked[]"]').click(function(){
 		var count = $('[name="checked[]"]').length
 		var checked = $('[name="checked[]"]:checked').length
@@ -164,6 +168,7 @@
 		else
 			$('#check_all').prop('checked',false)
 	})
+
 	$('#print').click(function(){
 		start_load()
 		$.ajax({
@@ -184,6 +189,7 @@
 			}
 		})
 	})
+
 	$('#filter').click(function(){
 		location.replace("index.php?page=records&from="+$('[name="from"]').val()+"&to="+$('[name="to"]').val())
 	})
@@ -202,7 +208,9 @@
 					},1500)
 
 				}
+	
 			}
 		})
 	}
+
 </script>

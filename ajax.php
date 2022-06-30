@@ -54,6 +54,13 @@ if($action == "delete_establishment"){
 	if($save)
 		echo $save;
 }
+
+if($action == "delete_records"){
+	$save = $crud->delete_records();
+	if($save)
+		echo $save;
+}
+
 if($action == "save_person"){
 	$save = $crud->save_person();
 	if($save)
