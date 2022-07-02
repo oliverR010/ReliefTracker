@@ -21,6 +21,7 @@ foreach($qry->fetch_array() as $k => $val){
 	</form>
 </div>
 <script>
+	
 	$('#manage-establishment').submit(function(e){
 		e.preventDefault()
 		start_load()
