@@ -63,6 +63,7 @@
 <body>
 	<?php include 'topbar.php' ?>
 	<?php include 'navbar.php' ?>
+  
   <div class="toast" id="alert_toast" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-body text-white">
     </div>
@@ -127,6 +128,7 @@
         $(this).remove();
       })
   }
+
  window.viewer_modal = function($src = ''){
     start_load()
     var t = $src.split('.')
@@ -147,6 +149,7 @@
                 end_load()  
 
 }
+
   window.uni_modal = function($title = '' , $url='',$size=""){
     start_load()
     $.ajax({
@@ -198,18 +201,22 @@ window._conf = function($msg='',$func='',$params = []){
     $('#alert_toast .toast-body').html($msg)
     $('#alert_toast').toast({delay:3000}).toast('show');
   }
+
   $(document).ready(function(){
     $('#preloader').fadeOut('fast', function() {
         $(this).remove();
       })
   })
+
   $('.datetimepicker').datetimepicker({
       format:'Y/m/d H:i',
       startDate: '+3d'
   })
+
   $('.select2').select2({
     placeholder:"Please select here",
     width: "100%"
   })
+  
 </script>	
 </html>

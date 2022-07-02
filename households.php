@@ -23,26 +23,38 @@
 
 			<!-- Table Panel -->
 			<div class="col-md-12">
+				<div class="text-center mt-4 mb-4">
+					<h2>List of Households</h2>
+				</div>
 				<div class="card">
 					<div class="card-header">
-						<b>List of Individuals</b>
-						<span class="">
-
-							<button class="btn btn-primary btn-block btn-sm col-sm-2 float-right" type="button" id="new_person">
-					<i class="fa fa-plus"></i> Add Person</button>
-					<button class="btn btn-success btn-block btn-sm col-sm-2 float-right mr-2 mt-0" type="button" id="print_selected">
-					<i class="fa fa-print"></i> Print Selected</button>
-				</span>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-md text-center>
+									<span class="">
+										<button class="btn btn-primary btn-sm ml-2 mb-1 float-right"  type="button" id="new_person">
+										<i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+										<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+										</svg></i> Add Household</button>
+										<button class="btn btn-success  btn-sm float-right"  type="button" id="print_selected">
+										<i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer" viewBox="0 0 16 16">
+										<path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+										<path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+										</svg></i> Print Selected</button>
+									</span>
+								</div>
+							</div>
+						</div>	
 					</div>
-					<div class="card-body">
-						<table class="table table-condensed table-hover">
+					<div class="card-body table-responsive">
+						<table class="table table-hover table-striped table-bordered">
 							<thead>
 								<tr>
-									<th class="text-center">
+									<!-- <th class="text-center">
 										 <div class="form-check">
 										  <input class="form-check-input position-static" type="checkbox" id="check_all"  aria-label="...">
 										</div>
-									</th>
+									</th> -->
 									<th class="text-center">#</th>
 									<th class="">Tracking ID</th>
 									<th class="">Name</th>
@@ -57,25 +69,26 @@
 								while($row=$types->fetch_assoc()):
 								?>
 								<tr>
-									<th class="text-center">
+									<!-- <th class="text-center">
 										<div class="form-check">
 										 	<input class="form-check-input position-static input-lg" type="checkbox" name="checked[]" value="<?php echo $row['id'] ?>">
 									 	</div>
-									</th>
+									</th> -->
 									<td class="text-center"><?php echo $i++ ?></td>
 									<td class="">
-										 <p> <b><?php echo $row['tracking_id'] ?></b></p>
+										 <p> <?php echo $row['tracking_id'] ?></p>
 									</td>
 									<td class="">
-										 <p> <b><?php echo ucwords($row['name']) ?></b></p>
+										 <p> <?php echo ucwords($row['name']) ?></p>
 									</td>
 									<td class="">
-										 <p> <b><?php echo $row['caddress'] ?></b></p>
+										 <p> <?php echo $row['caddress'] ?></p>
 									</td>
 									<td class="text-center">
-										<button class="btn btn-sm btn-outline-primary view_person" type="button" data-id="<?php echo $row['id'] ?>" >View</button>
-										<button class="btn btn-sm btn-outline-primary edit_person" type="button" data-id="<?php echo $row['id'] ?>" >Edit</button>
-										<button class="btn btn-sm btn-outline-danger delete_person" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
+										<button class="btn btn-sm btn-primary view_person mt-1" style="width:80px" type="button" data-id="<?php echo $row['id'] ?>" >Deliver</button>
+										<button class="btn btn-sm btn-primary view_person mt-1" style="width:80px" type="button" data-id="<?php echo $row['id'] ?>" >View</button>
+										<button class="btn btn-sm btn-success edit_person mt-1" style="width:80px" type="button" data-id="<?php echo $row['id'] ?>" >Edit</button>
+										<button class="btn btn-sm btn-danger delete_person mt-1" style="width:80px" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
 									</td>
 								</tr>
 								<?php endwhile; ?>
@@ -147,7 +160,7 @@
 		})
 		start_load()
 		$.ajax({
-			url:"print_persons.php",
+			url:"print_households.php",
 			method:"POST",
 			data:{ids : ids},
 			success:function(resp){

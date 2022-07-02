@@ -51,7 +51,7 @@
 							</div>
 						</div>
 						<hr>
-						<table class="table table-bordered table-condensed table-hover">
+						<table class="table table-responsive table-bordered table-condensed table-hover">
 							<colgroup>
 								<col width="2%">
 								<col width="10%">
